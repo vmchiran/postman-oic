@@ -1,0 +1,928 @@
+{
+	"info": {
+		"_postman_id": "d2b28051-9bd5-4aa9-b09b-317d5b5a307e",
+		"name": "REST API for OIC - CSM Workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Integrations/Integration Management",
+			"item": [
+				{
+					"name": "Retrieve Integrations",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/integrations",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"integrations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an Integration",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/integrations/HELLO_WORLD%7C01.02.0000",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"integrations",
+								"HELLO_WORLD%7C01.02.0000"
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-integrations-id-get.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Connections",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/connections",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export an Integration",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/octet-stream",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/integrations/HELLO_WORLD%7C01.02.0000/archive",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"integrations",
+								"HELLO_WORLD%7C01.02.0000",
+								"archive"
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-integrations-id-archive-get.html\n\nSend > Send and Download"
+					},
+					"response": []
+				},
+				{
+					"name": "Import (Replace) an Integration",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/integrations/archive",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"integrations",
+								"archive"
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-integrations-archive-put.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Integration - ACTIVATE",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-HTTP-Method-Override",
+								"value": "PATCH",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"ACTIVATED\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/integrations/HELLO_WORLD%7C01.02.0000",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"integrations",
+								"HELLO_WORLD%7C01.02.0000"
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-integrations-id-post.html\n\nTo deactivate, send status ACTIVATED\n\nTo deactivate, send status CONFIGURED"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Connection",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/connections/SAMPLE_FTP_CONNECTION",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"connections",
+								"SAMPLE_FTP_CONNECTION"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Connection",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-HTTP-Method-Override",
+								"type": "text",
+								"value": "PATCH"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n   \"connectionProperties\": { \r\n      \"propertyGroup\": \"CONNECTION_PROPS\",     \r\n      \"propertyName\": \"Host\",   \r\n      \"propertyType\": \"STRING\",  \r\n      \"propertyValue\": \"speedtest.tele2.net\" \r\n   }\r\n}"
+						},
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/connections/SAMPLE_FTP_CONNECTION",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"connections",
+								"SAMPLE_FTP_CONNECTION"
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-connections-id-post.html"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Integrations/Monitoring",
+			"item": [
+				{
+					"name": "Retrieve Monitoring Integrations",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/monitoring/integrations?q={timewindow: '6h'}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"monitoring",
+								"integrations"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "{timewindow: '6h'}"
+								}
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-monitoring-integrations-get.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve OIC Status Information",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/status",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Monitoring Integration",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/monitoring/integrations/HELLO_WORLD%7C01.02.0000?q={timewindow: '3d'}",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"monitoring",
+								"integrations",
+								"HELLO_WORLD%7C01.02.0000"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "{timewindow: '3d'}"
+								}
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-monitoring-integrations-id-get.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Monitoring Log File",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Expect",
+								"value": "application/zip",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/monitoring/logs/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"monitoring",
+								"logs",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "icsflowlog"
+								}
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-monitoring-logs-id-get.html\n\nSend > Send and Download"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieves monitoring audit records based on query",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/ic/api/integration/v1/monitoring/auditRecords",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"monitoring",
+								"auditRecords"
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-monitoring-auditrecords-get.html"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Export Artifacts oracsmemeaspec",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{USER_PW}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USER_LOGIN}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"type": "any"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"storageInfo\": {\r\n\t\t\"storageUrl\": \"https://swiftobjectstorage.eu-frankfurt-1.oraclecloud.com/v1/<namespace>/<bucket-name>\",\r\n\t\t\"storageUser\": \"<user-id>\",\r\n\t\t\"storagePassword\": \"<api-key-password>\"\r\n\t}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{HOST}}/ic/api/common/v1/exportServiceInstanceArchive",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"ic",
+						"api",
+						"common",
+						"v1",
+						"exportServiceInstanceArchive"
+					]
+				},
+				"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/integration-cloud-auton/export-integration-and-process-design-time-metadata-instances.html"
+			},
+			"response": []
+		},
+		{
+			"name": "Import Artifacts oracsmemeaspec",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{USER_PW}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USER_LOGIN}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"type": "any"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"archiveFile\": \"<file-name>.zip\",\n  \"importActivateMode\": \"ImportOnly\",\n  \"storageInfo\": {\n    \"storageUrl\": \"https://swiftobjectstorage.eu-frankfurt-1.oraclecloud.com/v1/<namespace>/<bucket-name>\",\n    \"storageUser\": \"<user-id>\",\n    \"storagePassword\": \"<api-key-password>\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/ic/api/common/v1/importServiceInstanceArchive",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"ic",
+						"api",
+						"common",
+						"v1",
+						"importServiceInstanceArchive"
+					]
+				},
+				"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/integration-cloud-auton/export-integration-and-process-design-time-metadata-instances.html"
+			},
+			"response": []
+		},
+		{
+			"name": "Check Export Status oracsmemeaspec",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{USER_PW}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USER_LOGIN}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"type": "any"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/ic/api/common/v1/exportServiceInstanceArchive/89882",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"ic",
+						"api",
+						"common",
+						"v1",
+						"exportServiceInstanceArchive",
+						"89882"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Import Status oracsmemeaspec",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{USER_PW}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USER_LOGIN}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"type": "any"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/ic/api/common/v1/importServiceInstanceArchive/89871",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"ic",
+						"api",
+						"common",
+						"v1",
+						"importServiceInstanceArchive",
+						"89871"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

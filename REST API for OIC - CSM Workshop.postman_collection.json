@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Integrations/Integration Management",
+			"name": "Integrations > Integrations",
 			"item": [
 				{
 					"name": "Retrieve Integrations",
@@ -38,9 +38,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/integrations",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/integrations",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -49,7 +49,8 @@
 								"v1",
 								"integrations"
 							]
-						}
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-integrations-get.html"
 					},
 					"response": []
 				},
@@ -83,9 +84,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/integrations/HELLO_WORLD%7C01.02.0000",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/integrations/:integrationId",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -93,7 +94,13 @@
 								"integration",
 								"v1",
 								"integrations",
-								"HELLO_WORLD%7C01.02.0000"
+								":integrationId"
+							],
+							"variable": [
+								{
+									"key": "integrationId",
+									"value": "HELLO_WORLD%7C01.02.0000"
+								}
 							]
 						},
 						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-integrations-id-get.html"
@@ -130,9 +137,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/connections",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/connections",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -188,9 +195,9 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/integrations/HELLO_WORLD%7C01.02.0000/archive",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/integrations/:integrationId/archive",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -198,8 +205,14 @@
 								"integration",
 								"v1",
 								"integrations",
-								"HELLO_WORLD%7C01.02.0000",
+								":integrationId",
 								"archive"
+							],
+							"variable": [
+								{
+									"key": "integrationId",
+									"value": "HELLO_WORLD%7C01.02.0000"
+								}
 							]
 						},
 						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-integrations-id-archive-get.html\n\nSend > Send and Download"
@@ -252,9 +265,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/integrations/archive",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/integrations/archive",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -320,9 +333,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/integrations/HELLO_WORLD%7C01.02.0000",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/integrations/:integrationId",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -330,7 +343,13 @@
 								"integration",
 								"v1",
 								"integrations",
-								"HELLO_WORLD%7C01.02.0000"
+								":integrationId"
+							],
+							"variable": [
+								{
+									"key": "integrationId",
+									"value": "HELLO_WORLD%7C01.02.0000"
+								}
 							]
 						},
 						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-integrations-id-post.html\n\nTo deactivate, send status ACTIVATED\n\nTo deactivate, send status CONFIGURED"
@@ -373,9 +392,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/connections/SAMPLE_FTP_CONNECTION",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/connections/:connectionId",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -383,7 +402,13 @@
 								"integration",
 								"v1",
 								"connections",
-								"SAMPLE_FTP_CONNECTION"
+								":connectionId"
+							],
+							"variable": [
+								{
+									"key": "connectionId",
+									"value": "SAMPLE_FTP_CONNECTION"
+								}
 							]
 						}
 					},
@@ -434,9 +459,9 @@
 							"raw": "{ \r\n   \"connectionProperties\": { \r\n      \"propertyGroup\": \"CONNECTION_PROPS\",     \r\n      \"propertyName\": \"Host\",   \r\n      \"propertyType\": \"STRING\",  \r\n      \"propertyValue\": \"speedtest.tele2.net\" \r\n   }\r\n}"
 						},
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/connections/SAMPLE_FTP_CONNECTION",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/connections/:connectionId",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -444,7 +469,13 @@
 								"integration",
 								"v1",
 								"connections",
-								"SAMPLE_FTP_CONNECTION"
+								":connectionId"
+							],
+							"variable": [
+								{
+									"key": "connectionId",
+									"value": "SAMPLE_FTP_CONNECTION"
+								}
 							]
 						},
 						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-connections-id-post.html"
@@ -452,10 +483,33 @@
 					"response": []
 				}
 			],
+			"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/api-integrations-integrations.html",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ed644b0c-73b6-4646-a84b-1a90ed2ea04e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "99d35360-0936-4171-8e0c-5c2023d9900a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Integrations/Monitoring",
+			"name": "Integrations > Monitoring",
 			"item": [
 				{
 					"name": "Retrieve Monitoring Integrations",
@@ -487,9 +541,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/monitoring/integrations?q={timewindow: '6h'}",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/monitoring/integrations?q={timewindow: '6h'}",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -540,9 +594,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/status",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/status",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -585,9 +639,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/monitoring/integrations/HELLO_WORLD%7C01.02.0000?q={timewindow: '3d'}",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/monitoring/integrations/:integrationId?q={timewindow: '3d'}",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -596,12 +650,18 @@
 								"v1",
 								"monitoring",
 								"integrations",
-								"HELLO_WORLD%7C01.02.0000"
+								":integrationId"
 							],
 							"query": [
 								{
 									"key": "q",
 									"value": "{timewindow: '3d'}"
+								}
+							],
+							"variable": [
+								{
+									"key": "integrationId",
+									"value": "HELLO_WORLD%7C01.02.0000"
 								}
 							]
 						},
@@ -645,9 +705,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/monitoring/logs/:id",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/monitoring/logs/:id",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -699,9 +759,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/ic/api/integration/v1/monitoring/auditRecords",
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/monitoring/auditRecords",
 							"host": [
-								"{{HOST}}"
+								"{{OIC_HOST}}"
 							],
 							"path": [
 								"ic",
@@ -713,6 +773,236 @@
 							]
 						},
 						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-monitoring-auditrecords-get.html"
+					},
+					"response": []
+				}
+			],
+			"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/api-integrations-monitoring.html",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d2b380f9-f7f3-4ba6-85eb-baf3ce6c2294",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "47cf9975-be08-4736-85b9-2489912dc89e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PSM",
+			"item": [
+				{
+					"name": "View All Service Instances",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ID-TENANT-NAME",
+								"value": "{{IDCS_ID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://psm.europe.oraclecloud.com:443/paas/api/v1.1/instancemgmt/:identityDomainId/services/OICINST/instances",
+							"protocol": "https",
+							"host": [
+								"psm",
+								"europe",
+								"oraclecloud",
+								"com"
+							],
+							"port": "443",
+							"path": [
+								"paas",
+								"api",
+								"v1.1",
+								"instancemgmt",
+								":identityDomainId",
+								"services",
+								"OICINST",
+								"instances"
+							],
+							"variable": [
+								{
+									"key": "identityDomainId",
+									"value": "{{IDCS_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start/Stop a Service Instance",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ID-TENANT-NAME",
+								"type": "text",
+								"value": "{{IDCS_ID}}"
+							}
+						],
+						"url": {
+							"raw": "https://psm.europe.oraclecloud.com:443/paas/api/v1.1/instancemgmt/{{IDCS_ID}}/services/OICINST/instances/:instanceName/:operation",
+							"protocol": "https",
+							"host": [
+								"psm",
+								"europe",
+								"oraclecloud",
+								"com"
+							],
+							"port": "443",
+							"path": [
+								"paas",
+								"api",
+								"v1.1",
+								"instancemgmt",
+								"{{IDCS_ID}}",
+								"services",
+								"OICINST",
+								"instances",
+								":instanceName",
+								":operation"
+							],
+							"variable": [
+								{
+									"key": "instanceName",
+									"value": "VCH-OIC-Std-Demo"
+								},
+								{
+									"key": "operation",
+									"value": "start"
+								}
+							]
+						},
+						"description": "operation: [start, stop]"
+					},
+					"response": []
+				},
+				{
+					"name": "View the Status of an Operation by Job Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ID-TENANT-NAME",
+								"type": "text",
+								"value": "{{IDCS_ID}}"
+							}
+						],
+						"url": {
+							"raw": "https://psm.europe.oraclecloud.com:443/paas/api/v1.1/activitylog/{{IDCS_ID}}/job/:jobId",
+							"protocol": "https",
+							"host": [
+								"psm",
+								"europe",
+								"oraclecloud",
+								"com"
+							],
+							"port": "443",
+							"path": [
+								"paas",
+								"api",
+								"v1.1",
+								"activitylog",
+								"{{IDCS_ID}}",
+								"job",
+								":jobId"
+							],
+							"variable": [
+								{
+									"key": "jobId",
+									"value": "184159168"
+								}
+							]
+						}
 					},
 					"response": []
 				}
@@ -759,9 +1049,9 @@
 					"raw": "{\r\n\t\"storageInfo\": {\r\n\t\t\"storageUrl\": \"https://swiftobjectstorage.eu-frankfurt-1.oraclecloud.com/v1/<namespace>/<bucket-name>\",\r\n\t\t\"storageUser\": \"<user-id>\",\r\n\t\t\"storagePassword\": \"<auth-token>\"\r\n\t}\r\n}\r\n"
 				},
 				"url": {
-					"raw": "{{HOST}}/ic/api/common/v1/exportServiceInstanceArchive",
+					"raw": "{{OIC_HOST}}/ic/api/common/v1/exportServiceInstanceArchive",
 					"host": [
-						"{{HOST}}"
+						"{{OIC_HOST}}"
 					],
 					"path": [
 						"ic",
@@ -815,9 +1105,9 @@
 					"raw": "{\n  \"archiveFile\": \"<file-name>.zip\",\n  \"importActivateMode\": \"ImportOnly\",\n  \"storageInfo\": {\n    \"storageUrl\": \"https://swiftobjectstorage.eu-frankfurt-1.oraclecloud.com/v1/<namespace>/<bucket-name>\",\n    \"storageUser\": \"<user-id>\",\n    \"storagePassword\": \"<auth-token>\"\n  }\n}"
 				},
 				"url": {
-					"raw": "{{HOST}}/ic/api/common/v1/importServiceInstanceArchive",
+					"raw": "{{OIC_HOST}}/ic/api/common/v1/importServiceInstanceArchive",
 					"host": [
-						"{{HOST}}"
+						"{{OIC_HOST}}"
 					],
 					"path": [
 						"ic",
@@ -861,9 +1151,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/ic/api/common/v1/exportServiceInstanceArchive/89882",
+					"raw": "{{OIC_HOST}}/ic/api/common/v1/exportServiceInstanceArchive/:jobId",
 					"host": [
-						"{{HOST}}"
+						"{{OIC_HOST}}"
 					],
 					"path": [
 						"ic",
@@ -871,7 +1161,13 @@
 						"common",
 						"v1",
 						"exportServiceInstanceArchive",
-						"89882"
+						":jobId"
+					],
+					"variable": [
+						{
+							"key": "jobId",
+							"value": "89882"
+						}
 					]
 				}
 			},
@@ -907,9 +1203,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/ic/api/common/v1/importServiceInstanceArchive/89871",
+					"raw": "{{OIC_HOST}}/ic/api/common/v1/importServiceInstanceArchive/:jobId",
 					"host": [
-						"{{HOST}}"
+						"{{OIC_HOST}}"
 					],
 					"path": [
 						"ic",
@@ -917,7 +1213,13 @@
 						"common",
 						"v1",
 						"importServiceInstanceArchive",
-						"89871"
+						":jobId"
+					],
+					"variable": [
+						{
+							"key": "jobId",
+							"value": "89871"
+						}
 					]
 				}
 			},

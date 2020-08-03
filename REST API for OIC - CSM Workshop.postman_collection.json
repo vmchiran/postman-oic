@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3ed27d88-6165-4132-b28a-00fab1381d04",
+		"_postman_id": "030a572c-28e2-46f5-bd26-558aa1f32ba5",
 		"name": "REST API for OIC - CSM Workshop",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -352,7 +352,7 @@
 								}
 							]
 						},
-						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-integrations-id-post.html\n\nTo deactivate, send status ACTIVATED\n\nTo deactivate, send status CONFIGURED"
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-integrations-id-post.html\n\nTo activate, send status ACTIVATED\n\nTo deactivate, send status CONFIGURED"
 					},
 					"response": []
 				},
@@ -488,7 +488,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ed644b0c-73b6-4646-a84b-1a90ed2ea04e",
+						"id": "7a93ae23-b060-4174-9a2c-4f8d55c8d29e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -498,7 +498,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "99d35360-0936-4171-8e0c-5c2023d9900a",
+						"id": "7aa92438-6cbd-4b36-aef4-69788b91faef",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -998,7 +998,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d2b380f9-f7f3-4ba6-85eb-baf3ce6c2294",
+						"id": "e02a6924-6e44-4404-abf0-7c41d9a04277",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1008,7 +1008,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "47cf9975-be08-4736-85b9-2489912dc89e",
+						"id": "e92b5c84-69fb-4fec-89fe-9991b727d1f8",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1596,6 +1596,63 @@
 						{
 							"key": "jobId",
 							"value": "89871"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hello World",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{USER_PW}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USER_LOGIN}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{OIC_HOST}}/ic/api/integration/v1/flows/rest/HELLO_WORLD/1.0/names/:name",
+					"host": [
+						"{{OIC_HOST}}"
+					],
+					"path": [
+						"ic",
+						"api",
+						"integration",
+						"v1",
+						"flows",
+						"rest",
+						"HELLO_WORLD",
+						"1.0",
+						"names",
+						":name"
+					],
+					"variable": [
+						{
+							"key": "name",
+							"value": "Captain N"
 						}
 					]
 				}

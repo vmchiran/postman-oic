@@ -512,7 +512,7 @@
 			"name": "Integrations > Monitoring",
 			"item": [
 				{
-					"name": "Retrieve Monitoring Integrations",
+					"name": "Retrieve Activated Integrations",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -610,7 +610,7 @@
 					"response": []
 				},
 				{
-					"name": "Retrieve Monitoring Integration",
+					"name": "Retrieve an Activated Integration",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -666,6 +666,169 @@
 							]
 						},
 						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-monitoring-integrations-id-get.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Integration Instances",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/monitoring/instances/?q={timewindow: '1d'}",
+							"host": [
+								"{{OIC_HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"monitoring",
+								"instances",
+								""
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "{timewindow: '1d'}"
+								}
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-monitoring-instances-get.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an Integration Instance",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/monitoring/instances/:id",
+							"host": [
+								"{{OIC_HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"monitoring",
+								"instances",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "41600428"
+								}
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-monitoring-instances-id-get.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve an Integration Instance Activity Stream",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/monitoring/instances/:instanceId/activityStream",
+							"host": [
+								"{{OIC_HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"monitoring",
+								"instances",
+								":instanceId",
+								"activityStream"
+							],
+							"variable": [
+								{
+									"key": "instanceId",
+									"value": "41600428"
+								}
+							]
+						},
+						"description": "http://niallcblogs.blogspot.com/2020/04/761-oic-monitoring-api.html"
 					},
 					"response": []
 				},
@@ -775,6 +938,59 @@
 						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-monitoring-auditrecords-get.html"
 					},
 					"response": []
+				},
+				{
+					"name": "Retrieve Error Integration Instances",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OIC_HOST}}/ic/api/integration/v1/monitoring/errors?q={timewindow: '6h'}",
+							"host": [
+								"{{OIC_HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"integration",
+								"v1",
+								"monitoring",
+								"errors"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "{timewindow: '6h'}"
+								}
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/op-ic-api-integration-v1-monitoring-errors-get.html"
+					},
+					"response": []
 				}
 			],
 			"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api/api-integrations-monitoring.html",
@@ -798,6 +1014,97 @@
 							""
 						]
 					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "File Server",
+			"item": [
+				{
+					"name": "Get file system configuration",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJ4NXQjUzI1NiI6IjUxek5JcjVjcno0QkZaZmNTdDN0NUF2dU1jZ29vMk9KbV9ienF5Q2pCUEkiLCJ4NXQiOiJsSTJEM0g4Vlc1UnVjbC1WMGt2QlFpZHVOaG8iLCJraWQiOiJTSUdOSU5HX0tFWSIsImFsZyI6IlJTMjU2In0.eyJ1c2VyX3R6IjoiRXVyb3BlXC9QYXJpcyIsInN1YiI6InZhbGVyaWEuY2hpcmFuQG9yYWNsZS5jb20iLCJ1c2VyX2xvY2FsZSI6ImVuIiwiaWRwX25hbWUiOiJDb25uZWN0IHdpdGggT3JhY2xlIFNTTyIsInVzZXIudGVuYW50Lm5hbWUiOiJpZGNzLWE1NjY5MWVlMDViZTRmYjE5M2Q4MGJiZTMzZjA0ZWNhIiwiaWRwX2d1aWQiOiIwODlhZjdjMTg2ZWQ0NTU3OWMxMWU5NzlhZmNiODIzZiIsImFtciI6WyJTQU1MIl0sImlzcyI6Imh0dHBzOlwvXC9pZGVudGl0eS5vcmFjbGVjbG91ZC5jb21cLyIsInVzZXJfdGVuYW50bmFtZSI6ImlkY3MtYTU2NjkxZWUwNWJlNGZiMTkzZDgwYmJlMzNmMDRlY2EiLCJjbGllbnRfaWQiOiI1MjZmZDM2ODM0NDY0NGI0YWVjZWJkYWVmYzA0OTlmYyIsInNpZCI6IjU1Yjg0MDM0LTUzMDEtNDY4MC1hZDkyLTdiNTU0NmFmZmZmNiIsInN1Yl90eXBlIjoidXNlciIsInNjb3BlIjoiXC9pY1wvYXBpXC8gdXJuOm9wYzpyZXNvdXJjZTpjb25zdW1lcjo6YWxsIiwiY2xpZW50X3RlbmFudG5hbWUiOiJpZGNzLWE1NjY5MWVlMDViZTRmYjE5M2Q4MGJiZTMzZjA0ZWNhIiwidXNlcl9sYW5nIjoiZW4iLCJleHAiOjE1OTU1MTc4MDMsImlhdCI6MTU5NTUxNDIwMywiY2xpZW50X2d1aWQiOiIwOGJkMmFiNjA2ZWI0YzFjYTEwZThlOTU3ZmYxZjk1YyIsImNsaWVudF9uYW1lIjoiVkNIIE9JQyBUcmlnZ2VyIHZpYSBPQXV0aCIsImlkcF90eXBlIjoiU0FNTCIsInRlbmFudCI6ImlkY3MtYTU2NjkxZWUwNWJlNGZiMTkzZDgwYmJlMzNmMDRlY2EiLCJqdGkiOiJiZDU4YWRjZS0xYjcyLTRiNjUtOGMyMy0wYzkzMmExOGJlN2QiLCJ1c2VyX2Rpc3BsYXluYW1lIjoiVmFsZXJpYSBDaGlyYW4iLCJzdWJfbWFwcGluZ2F0dHIiOiJ1c2VyTmFtZSIsInByaW1UZW5hbnQiOnRydWUsInRva190eXBlIjoiQVQiLCJjYV9ndWlkIjoiY2FjY3QtYjMwNDAxMmE0MGNhNGQ1NWE5YTQxZTEwY2NhOGU1NjIiLCJhdWQiOlsidXJuOm9wYzpsYmFhczpsb2dpY2FsZ3VpZD1FOTk4RTlCREY4MzM0QTJGQTRCNjcxMjc1MjVBNEIyQiIsImh0dHBzOlwvXC9FOTk4RTlCREY4MzM0QTJGQTRCNjcxMjc1MjVBNEIyQi5pbnRlZ3JhdGlvbi5vY3Aub3JhY2xlY2xvdWQuY29tOjQ0MyJdLCJ1c2VyX2lkIjoiZWMwY2RjZjE0MjY2NDU1YTlhNjk2NmU2ZjkzZTU4NzUiLCJ0ZW5hbnRfaXNzIjoiaHR0cHM6XC9cL2lkY3MtYTU2NjkxZWUwNWJlNGZiMTkzZDgwYmJlMzNmMDRlY2EuaWRlbnRpdHkub3JhY2xlY2xvdWQuY29tIn0.UbfxTqzBHXqI3eVJG00CRVh6bTYPQB5FofQAek_55w_QUjlvkuf7upqc6k_3EvF1IhJBFO0yWyK7vr62g1JJAjXlYBlJRfwmHeFlE70KVMGA0XuRWAuE97kekOMxEhRPMlQsDNhVqARQ35LtrA_75RUh7P4TbR3Q0qBl6hBvgN4IoQCTwmP85IHzuC2Vy5DjcA6uPVqNQdMhf6wD5byrZ7mPyAMf_WqMuicBRgtrAsnwxwPNXj7XAH57iyoSR6i98IK5jAp6PohGUcg5y5-ATN0D6uJgezu3Em5VFrqpI_14Ui3iNsL7LQeIKyy29Q8X_79rVrfpLmNEj9g-JJUFdg",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OIC_HOST}}/ic/api/fileserver/v1/filesystem/configuration",
+							"host": [
+								"{{OIC_HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"fileserver",
+								"v1",
+								"filesystem",
+								"configuration"
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api-fs/op-ic-api-fileserver-v1-filesystem-configuration-get.html"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all services",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OIC_HOST}}/ic/api/fileserver/v1/services",
+							"host": [
+								"{{OIC_HOST}}"
+							],
+							"path": [
+								"ic",
+								"api",
+								"fileserver",
+								"v1",
+								"services"
+							]
+						},
+						"description": "https://docs.oracle.com/en/cloud/paas/integration-cloud/rest-api-fs/op-ic-api-fileserver-v1-services-get.html"
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -864,6 +1171,76 @@
 								{
 									"key": "identityDomainId",
 									"value": "{{IDCS_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View a Service Instance",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{USER_PW}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{USER_LOGIN}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ID-TENANT-NAME",
+								"value": "{{IDCS_ID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://psm.europe.oraclecloud.com:443/paas/api/v1.1/instancemgmt/:identityDomainId/services/OICINST/instances/:instanceName",
+							"protocol": "https",
+							"host": [
+								"psm",
+								"europe",
+								"oraclecloud",
+								"com"
+							],
+							"port": "443",
+							"path": [
+								"paas",
+								"api",
+								"v1.1",
+								"instancemgmt",
+								":identityDomainId",
+								"services",
+								"OICINST",
+								"instances",
+								":instanceName"
+							],
+							"variable": [
+								{
+									"key": "identityDomainId",
+									"value": "{{IDCS_ID}}"
+								},
+								{
+									"key": "instanceName",
+									"value": "VCH-OIC-Std-Demo"
 								}
 							]
 						}
@@ -999,7 +1376,7 @@
 							"variable": [
 								{
 									"key": "jobId",
-									"value": "184159168"
+									"value": "184399547"
 								}
 							]
 						}

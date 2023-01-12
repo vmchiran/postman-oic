@@ -1,4 +1,11 @@
 # postman-oic
+
+> **This repo is archived due to old age.**
+>
+> **Note: Always refer to the latest product documentation.**
+
+---
+
 Postman collection for OIC REST APIs
 
 * Download collection and environment
